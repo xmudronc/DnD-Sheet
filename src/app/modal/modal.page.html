@@ -1,0 +1,18 @@
+<ion-content class="modal-bgr" color="modal-bgr">
+  <div class="modal-page modal-search">
+    <ion-row>
+      <h2 class="modal-title">{{attribute.name}}</h2>
+    </ion-row>
+      <ion-row class="btn-row">       
+        <ion-button class="val-btn l" (click)="dec()"> - </ion-button>
+        <ion-item class="input">
+          <ion-input [value]="((attribute.value))" (ionChange)='onChange($event.target.value)'></ion-input>
+        </ion-item>
+        <ion-button class="val-btn r" (click)="inc()"> + </ion-button>
+        </ion-row>      
+    <ion-row class="btn-row">
+      <ion-button class="modal-btn" (click)="cancelBtn()">CANCEL</ion-button>
+      <ion-button class="modal-btn" (click)="okBtn()">OK</ion-button>
+    </ion-row>
+  </div>
+</ion-content>

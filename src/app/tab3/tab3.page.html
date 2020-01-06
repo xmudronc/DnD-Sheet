@@ -1,8 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      {{getCharacter().name}}
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="primary" (click)="save()">
+        <ion-icon slot="icon-only" name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

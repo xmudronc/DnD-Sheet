@@ -1,41 +1,71 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      {{getCharacter().name}}
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="primary" (click)="save()">
+        <ion-icon slot="icon-only" name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card class="welcome-card">
-      <img src="/assets/shapes.svg" alt="" />
       <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
+        <ion-card-subtitle>Character</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+        <p>CLASS & LEVEL: {{getCharacter().class}} {{getCharacter().level}} <ion-icon ion-button (click)="edit('lvl')" name="create"></ion-icon></p>
+        <p>BACKGROUND: {{getCharacter().background}}</p>
+        <p>ALIGNMENT: {{getCharacter().alignment}}</p>
+        <p>EXPERIENCE: {{getCharacter().experience}} <ion-icon ion-button (click)="edit('exp')" name="create"></ion-icon></p>
       </ion-card-content>
     </ion-card>
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
-        <ion-icon slot="start" color="medium" name="build"></ion-icon>
-        <ion-label>Scaffold Out Your App</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/layout/structure">
-        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
-        <ion-label>Change Your App Layout</ion-label>
-      </ion-item>
-      <ion-item href="https://ionicframework.com/docs/theming/basics">
-        <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
-        <ion-label>Theme Your App</ion-label>
-      </ion-item>
-    </ion-list>
+
+    <ion-card class="welcome-card">
+      <ion-card-content>
+        <p>Inspiration: {{getCharacter().inspiration}}</p>
+        <p>Proficiency: {{getCharacter().proficiency_bonus}}</p>
+        <p>Perception: {{getCharacter().perception}}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-subtitle>Stats</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p>STRENGTH: {{getCharacter().stats.strength}} {{calcStatBonus(getCharacter().stats.strength)}}</p>
+        <p>DEXTERITY: {{getCharacter().stats.dexterity}} {{calcStatBonus(getCharacter().stats.dexterity)}}</p>
+        <p>CONSTITUTION: {{getCharacter().stats.constitution}} {{calcStatBonus(getCharacter().stats.constitution)}}</p>
+        <p>INTELIGENCE: {{getCharacter().stats.inteligence}} {{calcStatBonus(getCharacter().stats.inteligence)}}</p>
+        <p>WISDOM: {{getCharacter().stats.wisdom}} {{calcStatBonus(getCharacter().stats.wisdom)}}</p>
+        <p>CHARISMA: {{getCharacter().stats.charisma}} {{calcStatBonus(getCharacter().stats.charisma)}}</p>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-subtitle>Saving throws</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><ion-icon slot="icon-only" [name]="getCharacter().saving_throws.strength?'md-checkmark':'md-close'"></ion-icon> STRENGTH: {{calcStatBonusProf(getCharacter().stats.strength, getCharacter().saving_throws.strength)}}</p>
+        <p><ion-icon slot="icon-only" [name]="getCharacter().saving_throws.dexterity?'md-checkmark':'md-close'"></ion-icon> DEXTERITY: {{calcStatBonusProf(getCharacter().stats.dexterity, getCharacter().saving_throws.dexterity)}}</p>
+        <p><ion-icon slot="icon-only" [name]="getCharacter().saving_throws.constitution?'md-checkmark':'md-close'"></ion-icon> CONSTITUTION: {{calcStatBonusProf(getCharacter().stats.constitution, getCharacter().saving_throws.constitution)}}</p>
+        <p><ion-icon slot="icon-only" [name]="getCharacter().saving_throws.inteligence?'md-checkmark':'md-close'"></ion-icon> INTELIGENCE: {{calcStatBonusProf(getCharacter().stats.inteligence, getCharacter().saving_throws.inteligence)}}</p>
+        <p><ion-icon slot="icon-only" [name]="getCharacter().saving_throws.wisdom?'md-checkmark':'md-close'"></ion-icon> WISDOM: {{calcStatBonusProf(getCharacter().stats.wisdom, getCharacter().saving_throws.wisdom)}}</p>
+        <p><ion-icon slot="icon-only" [name]="getCharacter().saving_throws.charisma?'md-checkmark':'md-close'"></ion-icon> CHARISMA: {{calcStatBonusProf(getCharacter().stats.charisma, getCharacter().saving_throws.charisma)}}</p>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-subtitle>Skills</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content *ngFor="let item of getCharacter().skills">
+        <p><ion-icon slot="icon-only" [name]="item.radio?'md-checkmark':'md-close'"></ion-icon> {{item.name}}: {{calcStatBonusProf(getStat(item.base), item.radio)}}</p>
+      </ion-card-content>
+    </ion-card>
 </ion-content>

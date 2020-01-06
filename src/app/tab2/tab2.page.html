@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      {{getCharacter().name}}
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="primary" (click)="save()">
+        <ion-icon slot="icon-only" name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>HP</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Max HP: {{getCharacter().defense.max_hp}}</p>
+      <p>Current HP: {{getCharacter().defense.curr_hp}}</p>
+      <p>Temporary HP: {{getCharacter().defense.tmp_hp}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <p>Armor class: {{getCharacter().defense.armor_class}}</p>
+      <p>Initiative: {{getCharacter().defense.initiative}}</p>
+      <p>Speed: {{getCharacter().defense.speed}} ft</p>
+    </ion-card-content>
+  </ion-card>
+    
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Weapons</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content *ngFor="let item of getCharacter().attack">
+      <p>{{item.name}} - bonus: {{item.bonus}} damage: {{item.damage}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

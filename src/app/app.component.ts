@@ -10,7 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  constructor(
+
+  constructor (
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
@@ -21,6 +22,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#ffffff');
       this.splashScreen.hide();
     });
   }
