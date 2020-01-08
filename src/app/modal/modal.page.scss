@@ -29,3 +29,7 @@
     width: calc(50% - 8px);
     margin: 4px;
 }
+
+ion-content {
+    --ion-background-color : transparent !important;
+}

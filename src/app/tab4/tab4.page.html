@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{getCharacter().name}}
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="primary" (click)="save()">
+        <ion-icon slot="icon-only" name="save"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-button class="modal-btn" (click)="roll(4)">
+      d4
+    </ion-button>
+    <ion-button class="modal-btn" (click)="roll(6)">
+      d6
+    </ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-button class="modal-btn" (click)="roll(8)">
+      d8
+    </ion-button>
+    <ion-button class="modal-btn" (click)="roll(10)">
+      d10
+    </ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-button class="modal-btn" (click)="roll(16)">
+      d16
+    </ion-button>
+    <ion-button class="modal-btn" (click)="roll(20)">
+      d20
+    </ion-button>
+  </ion-row>
+  <ion-row>
+    <ion-button class="modal-btn cnt" (click)="roll(100)">
+      d%
+    </ion-button>
+  </ion-row>
+</ion-content>

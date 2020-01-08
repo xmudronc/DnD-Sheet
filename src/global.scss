@@ -24,3 +24,26 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-modal {
+    --background: unset !important;
+  }
+
+  .modal-bgr {
+    --background: transparent !important; 
+
+      ion-content {
+        --background: transparent !important;
+      }
+  }
+
+  .modal-page {
+    border-radius: 5px;
+    position: absolute;
+    left: 10vw;
+    width: 80vw;
+    height: calc(100vh - 20vw);
+    top: 10vw;
+    background-color: white;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.12);
+  }

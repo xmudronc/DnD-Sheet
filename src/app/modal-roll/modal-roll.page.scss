@@ -1,0 +1,62 @@
+.modal-title {
+    text-align: center;
+    width: 100%;
+}
+
+.btn-row {
+    padding: 4px;
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+}
+
+.input {
+    text-align: center;
+    width: calc(100% - 20% - 20% - 10% - 10% - 4px - 4px);
+}
+
+.val-btn {
+    width: 10%;
+    margin: 4px;
+}
+
+.r {
+    margin-right: 20%;
+}
+
+.l {
+    margin-left: 20%;
+}
+
+.modal-btn {
+    width: calc(50% - 8px);
+    margin: 4px;
+    position: absolute;
+    bottom: 18px;
+}
+
+.cnt {
+    margin-left: calc((50% - (50% - 8px) / 2));
+    margin-right: calc((50% - (50% - 8px) / 2));
+    text-align: center;
+}
+
+.roll {
+    text-align: center;
+    font-size: 50vw;
+    color: white;
+    text-shadow: 4px 4px 20px black;
+    position: absolute;
+    left: 0vw;
+    width: 80vw;
+    height: 100%;
+    top: 0vw;
+    vertical-align: middle;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+ion-content {
+    --ion-background-color : transparent !important;
+}

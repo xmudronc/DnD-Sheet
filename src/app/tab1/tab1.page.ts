@@ -39,7 +39,7 @@ export class Tab1Page {
   }
 
   edit(atr) {
-    this.modal.openModal(atr);
+    this.modal.openModal(atr, this.modal.EDIT);
   }
 
   getStat(stat) {

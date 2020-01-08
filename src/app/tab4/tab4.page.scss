@@ -1,0 +1,10 @@
+.modal-btn {
+    width: calc(50% - 8px);
+    margin: 4px;
+}
+
+.cnt {
+    margin-left: calc((50% - (50% - 8px) / 2));
+    margin-right: calc((50% - (50% - 8px) / 2));
+    text-align: center;
+}

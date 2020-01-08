@@ -11,11 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ModalPageModule } from '../app/modal/modal.module';
+import { ModalRollPageModule } from '../app/modal-roll/modal-roll.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ModalPageModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ModalPageModule, ModalRollPageModule],
   providers: [
     StatusBar,
     SplashScreen,
