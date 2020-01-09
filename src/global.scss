@@ -31,6 +31,7 @@ ion-modal {
 
   .modal-bgr {
     --background: transparent !important; 
+    backdrop-filter: blur(2px);
 
       ion-content {
         --background: transparent !important;
@@ -44,6 +45,84 @@ ion-modal {
     width: 80vw;
     height: calc(100vh - 20vw);
     top: 10vw;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.12);
   }
+
+  ion-tab-bar {
+    // Translucent positioning effect
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    --background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%);
+    backdrop-filter: blur(2px);
+}
+
+ion-toolbar {
+  --background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%);
+  --ion-color-base: transparent !important;
+  backdrop-filter: blur(2px);
+  }
+
+.bottom-spacer {
+  height: 56px;
+}
+
+.fab {
+  margin-bottom: 56px;  
+}
+
+.fab-blue {
+  --background: rgba(56, 128, 255, 0.7);
+}
+
+.fab-white {
+  --background: rgba(255, 255, 255, 0.5);
+}
+
+ion-fab-button {  
+  backdrop-filter: blur(2px);
+  border-radius: 50%;
+}
+
+ion-button {
+  --background: rgba(56, 128, 255, 0.7);
+}
+
+.icon-blue {
+  color: rgba(56, 128, 255, 0.7);
+}
+
+ion-tab-button.tab-selected {
+  ion-icon, ion-label {
+    color: rgba(56, 128, 255, 0.7) !important;
+    --ion-color-base: rgba(56, 128, 255, 0.7) !important;
+  }
+}
+
+.welcome-card img {
+  overflow: hidden;
+}
+
+.img-card {
+  height: calc(100vw - 20px);
+  padding: 0px;
+}
+
+.img-container ion-fab-button {
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  background-size: cover;  
+  background-repeat: no-repeat;
+}

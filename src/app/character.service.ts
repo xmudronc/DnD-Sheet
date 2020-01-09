@@ -11,6 +11,7 @@ export class CharacterService {
   db_status: any = undefined;
 
   character: any = {
+    image: undefined,
     name: 'Opičiak',
     level: 3,
     race: 'Halfling (lightfoot)',
@@ -275,6 +276,11 @@ export class CharacterService {
           name: 'Level',
           value: this.character.level
         };
+      case 'name':
+        return {
+          name: 'name',
+          value: this.character.name
+        };
     }
   }
 
@@ -285,6 +291,9 @@ export class CharacterService {
         break;
       case 'lvl':
         this.character.level = val;
+        break;
+      case 'name':
+        this.character.name = val;
         break;
     }
   }

@@ -31,4 +31,8 @@ export class Tab4Page {
   save() {
     this.character.save();
   }
+
+  edit(atr) {
+    this.modal.openModal(atr, this.modal.EDIT);
+  }
 }

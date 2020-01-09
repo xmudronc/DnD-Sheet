@@ -1,14 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-title ion-button (click)="edit('name')">
       {{getCharacter().name}}
     </ion-title>
     <ion-buttons slot="primary">
-      <ion-button color="primary" (click)="save()">
-        <ion-icon slot="icon-only" name="save"></ion-icon>
+      <ion-button (click)="save()">
+        <ion-icon class="icon-blue" slot="icon-only" name="save"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content fullscreen>
+  <ion-card class="welcome-card img-card" (click)="pickImg()">
+    <ion-card-content class="img-container" id="character-img">
+        <ion-fab-button class="fab-blue" id="character-btn">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-card-content>
+  </ion-card>
+
+<ion-fab class="fab" vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button class="fab-blue">
+        <ion-icon name="cube"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button class="fab-white" (click)="roll(20)">20</ion-fab-button>
+        <ion-fab-button class="fab-white" (click)="roll(16)">16</ion-fab-button>
+        <ion-fab-button class="fab-white" (click)="roll(10)">10</ion-fab-button>
+        <ion-fab-button class="fab-white" (click)="roll(8)">8</ion-fab-button>
+        <ion-fab-button class="fab-white" (click)="roll(6)">6</ion-fab-button>
+        <ion-fab-button class="fab-white" (click)="roll(4)">4</ion-fab-button>
+        <ion-fab-button class="fab-white" (click)="roll(100)">%</ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+    <div class="bottom-spacer"></div>
+</ion-content>

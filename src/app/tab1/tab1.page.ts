@@ -17,6 +17,13 @@ export class Tab1Page {
 
   }
 
+  roll(num) {
+    this.modal.openModal({
+      type: 'D' + (num!=100?num:'%'),
+      result: Math.floor(Math.random() * num) + 1
+    }, this.modal.ROLL);
+  }
+
   calcStatBonus(stat) {
     var mod = this.character.getStatModifier(stat);
     if (mod < 0) {

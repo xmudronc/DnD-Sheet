@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-title ion-button (click)="edit('name')">
       {{getCharacter().name}}
     </ion-title>
     <ion-buttons slot="primary">
